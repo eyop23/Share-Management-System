@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 const { default: mongoose } = require('mongoose');
 const request = require('request');
 const oldshareholder = require('../model/shareamount');
-const createShare=asyncHandler(async(req,res)=>{
+const increaseShare=asyncHandler(async(req,res)=>{
   const {firstname,email,shareamount,lastname,middlename,phoneNo}=req.body;
   if(!firstname || !middlename || !lastname || !phoneNo|| !email || !shareamount){
     res.status(404);
@@ -66,14 +66,14 @@ const getoldshareholders=asyncHandler(async(req,res)=>{
   const share=await oldshareholder.find();
   if(!share){
     res.status(500)
-    throw new Error('cannot fetch a shareholder')
+    throw new Error('no shareholder found')
   }
   res.status(200).json(share);
 })
 const getShareholderById=asyncHandler(async (req,res)=>{
   const {id}=req.params;
   if(!mongoose.Types.ObjectId.isValid(id)){
-    res.status(404).json({error: 'no new buyer found'})
+    res.status(404).json({error: 'no shareholder found'})
       }
       const share=await oldshareholder.findById({_id:id});
       if(share){
@@ -94,7 +94,7 @@ const deleteShare=asyncHandler(async(req,res)=>{
   res.status(200).json({ id:id })
 })
 module.exports={
-    createShare,
+    increaseShare,
     getoldshareholders,
     getShareholderById,
     deleteShare

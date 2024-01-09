@@ -19,7 +19,7 @@ const UserContact=asyncHandler(async(req,res)=>{
   })
   .catch((error)=>{
     res.json({
-      message:"error"
+      error:`${error} error`
     })
   })
 })

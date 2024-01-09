@@ -28,12 +28,12 @@ const createNew=asyncHandler(async(req,res)=>{
   const userExist=await buyers.findOne({email});
   if(userExist){
     res.status(404);
-    throw new Error("user already exists change your email");
+    throw new Error("user already exists change your email"); //user on pending status
   }
   const shareExist=await Shareholders.findOne({email});
   if(shareExist){
     res.status(404);
-    throw new Error("shareholder already exists change your email");
+    throw new Error("shareholder already exists change your email"); 
   }
   // if(shareamount < 1000){
   //   res.status(404);
@@ -79,30 +79,21 @@ let options = {
     "customization[description]": "I love online payments"
   })
 };
-try {
-  request(options, async function (error, response) {
-  if (error){
-    return  res.json({
-    error:"something were wrong please cheak ur internet connection"
-  });}
-   const result=await JSON.parse(response.body);
-  res.json({
-    message:result.data.checkout_url
-  })
-  share.save().then(async(response)=>{
-    console.log("saved");
-  })
-    .catch(error=>{
-    console.log(error)
+request(options, async function (err, response) {
+    try {
+      const result=await JSON.parse(response.body);
+      console.log(result.status)
+      if(result.status==='success'){
+        await share.save();
+      }
+   res.json({message:result.data.checkout_url})
+  }
+   catch (error) {
+    // console.log(err)
     res.json({
-      message:"error"
-    })
-  })
-  });
-} catch (error) {
-  console.log(error)
-}
-})
+  error:`something were wrong please cheak ur internet connection...${err}`})
+   }
+})})
 const deleteNewBuyer=asyncHandler(async(req,res)=>{
   const {id}=req.params;
   if(!mongoose.Types.ObjectId.isValid(id)){
@@ -114,7 +105,7 @@ const deleteNewBuyer=asyncHandler(async(req,res)=>{
     throw new Error('newbuyer not found');
   }
   await shareholder.deleteOne({_id:id})
-  res.status(200).json({ id:id })
+  res.status(204).json({ id:id })
 })
   
 module.exports={

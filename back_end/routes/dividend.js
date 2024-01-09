@@ -5,6 +5,5 @@ const { isAdmin, protect } = require('../middleware/authMiddelware');
 
 const router = express.Router();
 
-router.post('/',protect,calculateDividends);
-
+router.post('/',protect,isAdmin,calculateDividends);
 module.exports = router;

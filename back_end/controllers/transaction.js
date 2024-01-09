@@ -3,7 +3,7 @@ const { default: mongoose } = require('mongoose');
 const request = require('request');
 const transaction = require('../model/transaction');
 const posttransaction=asyncHandler(async(req,res)=>{
-    const value=req.query.trx_ref; // chapa verfication link
+    const value=req.query.trx_ref; //chapa unique value to verify the payement
     console.log(value)
     let options = {
       'method': 'GET',
@@ -17,7 +17,7 @@ const posttransaction=asyncHandler(async(req,res)=>{
         throw new Error(error);
       }
        const result=await JSON.parse(response.body);
-      console.log(result);
+      // console.log(result);
       let payment=new transaction({
         first_name:result.data.first_name,
         last_name:result.data.last_name,

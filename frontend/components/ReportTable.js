@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 const ReportTable = ({ shareholderActivities }) => {
   const [addshare, setaddshare] = useState(null);
   const router = useRouter();
+  console.log(shareholderActivities)
   let user;
   useEffect(()=>{
     const fetchShareholders=async ()=>{

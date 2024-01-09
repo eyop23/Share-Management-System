@@ -24,7 +24,7 @@ const updatepassword=asyncHandler(async (req, res) => {
   }
   if (!req.user) {
     res.status(401)
-    throw new Error('User not found')
+    throw new Error('Shareholder not logged IN!')
   }
   if(req.user.id !== shareholder._id.toString()){
     res.status(401)
@@ -38,7 +38,6 @@ const updatepassword=asyncHandler(async (req, res) => {
 })
 const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user)
-  console.log(req.user.firstname);
 })
 // else{
 //   res.send("id not matched");

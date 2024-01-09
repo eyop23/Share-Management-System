@@ -6,7 +6,6 @@ export default function shareholder_details() {
   const [user, setUser] = useState(null);
   const router =useRouter();
  const id=router.query.id
- console.log(id)
   const [error, setError] = useState(null)
   useEffect(() => {
     async function fetchShareholdesInfo() {
@@ -17,7 +16,7 @@ export default function shareholder_details() {
             Authorization: `Bearer ${users.token}`,
           },
         }
-        const response = await fetch(`http://localhost:8000/api/share/edit_shareholder/${id}`,config)
+        const response = await fetch(`http://localhost:8000/api/share/shareholder_details/${id}`,config)
         const data = await response.json()
         if(response.ok){
           setUser(data)

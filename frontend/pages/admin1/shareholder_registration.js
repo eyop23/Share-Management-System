@@ -112,9 +112,9 @@ useEffect(()=>{
       const deleteresponse = await fetch(`http://localhost:8000/api/buyer/${id}`, {
         method: "DELETE",
       });
-      const deleteddata = await deleteresponse.json();
-      if (response.ok) {
-        console.log(deleteddata);
+      // const deleteddata = await deleteresponse.json();
+      if (deleteresponse.ok) {
+        console.log("deleteddata");
       }
     
   };
