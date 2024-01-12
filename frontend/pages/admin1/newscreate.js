@@ -22,11 +22,15 @@ const AddNews = () => {
     if (image) {
       formData.append('image', image, image.name);
     }
-
-    const res = await fetch('http://localhost:8000/api/adminnews', {
-      method: 'POST',
-      body: formData,
-    });
+    const user= JSON.parse(sessionStorage.getItem("user"));
+      const config = {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    const res = await fetch('http://localhost:8000/api/adminnews',config);
 
     if (res.ok) {
       console.log(res);

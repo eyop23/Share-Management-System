@@ -80,7 +80,7 @@ function dashboared() {
               </div>
             </div> */}
                  <div className="flex items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 ease-in-out">
-            <Link href="http://localhost:3000/shareholder/myshare">
+            <Link href="http://localhost:3001/shareholder/myshare">
               <div className="rounded-full bg-teal-500 text-white p-2 mr-4 hover:scale-105 ease-in duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ function dashboared() {
               </div>
             </div>
             <div className="flex items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 ease-in-out">
-            <Link href="http://localhost:3000/shareholder/news">
+            <Link href="http://localhost:3001/shareholder/news">
               <div className="rounded-full bg-purple-500 text-white p-2 mr-4 hover:scale-105 ease-in duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ function dashboared() {
               </div>
             </div>
             <div className="flex items-center p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300 ease-in-out">
-               <Link href="http://localhost:3000/shareholder/report">
+               <Link href="http://localhost:3001/shareholder/report">
             <div className="rounded-full bg-red-500 text-white p-2 mr-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +158,7 @@ function dashboared() {
               </div>
             </div>
             <div className="flex items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 ease-in-out">
-            <Link href="http://localhost:3000/shareholder/buy">
+            <Link href="http://localhost:3001/shareholder/buy">
               <div className="rounded-full bg-pink-500 text-white p-2 mr-4 hover:scale-105 ease-in duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -184,7 +184,7 @@ function dashboared() {
               </div>
             </div>
             <div className="flex items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 ease-in-out">
-            <Link href="http://localhost:3000/shareholder/chat">
+            <Link href="http://localhost:3001/shareholder/chat">
               <div className="rounded-full bg-indigo-500 text-white p-2 mr-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +210,7 @@ function dashboared() {
               </div>
             </div>
             <div className="flex items-center p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300 ease-in-out">
-            <Link href="http://localhost:3000/shareholder/setting">
+            <Link href="http://localhost:3001/shareholder/setting">
               <div className="rounded-full bg-gray-500 text-white p-2 mr-4">
               <svg
                   xmlns="http://www.w3.org/2000/svg"

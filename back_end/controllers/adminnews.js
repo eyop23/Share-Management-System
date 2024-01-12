@@ -13,6 +13,7 @@ const createAdminNews=asyncHandler(async(req,res)=>{
     description:req.body.description,
     author:req.body.author,
   })
+  console.log("df")
   if(req.file){
     admin.image=req.file.path
     admin.save().then(()=>{

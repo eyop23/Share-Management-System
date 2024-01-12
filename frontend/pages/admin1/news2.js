@@ -68,10 +68,15 @@ const AdminNewsCard = ({adminnews}) => {
   // console.log(news.title)
   // console.log(adminnews.reverse())
   // console.log(adminnews)
-  const handleDelete = async (id) => {
-    const response = await fetch(`http://localhost:8000/api/adminnews/${id}`, {
+  const user= JSON.parse(sessionStorage.getItem("user"));
+    const config = {
       method: "DELETE",
-    });
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    }
+  const handleDelete = async (id) => {
+    const response = await fetch(`http://localhost:8000/api/adminnews/${id}`, config);
     const data = await response.json();
     if (response.ok) {
       console.log(data);
