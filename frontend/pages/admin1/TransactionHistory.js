@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Layout from '../admin1';
 import { data } from 'autoprefixer';
 import { formatDistance, formatDistanceToNow } from 'date-fns';
+import Link from 'next/link';
+import { FaEdit } from 'react-icons/fa';
 
 
 // Define the UserProfile component
@@ -68,7 +70,15 @@ export default function TransactionHistory() {
               <span className="font-semibold">Email:<span className='pl-2 text-green-600'>{user.email}</span></span> 
             </p> 
             <p className='italic text-normal text-right text-blue-950 pb-0 '>{formatDistanceToNow(new Date(user.createdAt),{addSuffix:true})}</p>
-   
+            <button>
+                    <Link
+                      className="flex text-center ml-2 bg-gray-600 text-white"
+                      href={`/admin1/newBuyersList`}
+                    >
+                      {/* <FaEdit className="mt-1 mr-2 ml-1" /> */}
+                      Back
+                    </Link>{" "}
+              </button>
             </div>
           </div>
         </div>

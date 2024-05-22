@@ -44,7 +44,7 @@ const shareSchema=new schema({
             },
             roll: {
                 type:Number,
-                default:0,
+                default:0,//shareholder n if roll equal to 2 its admin
             },
             houseNo:{
                 type:String,

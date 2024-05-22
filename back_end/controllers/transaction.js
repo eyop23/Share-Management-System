@@ -4,7 +4,7 @@ const request = require('request');
 const transaction = require('../model/transaction');
 const posttransaction=asyncHandler(async(req,res)=>{
     const value=req.query.trx_ref; //chapa unique value to verify the payement
-    console.log(value)
+    // console.log(value)
     let options = {
       'method': 'GET',
       'url': `https://api.chapa.co/v1/transaction/verify/${value}`,

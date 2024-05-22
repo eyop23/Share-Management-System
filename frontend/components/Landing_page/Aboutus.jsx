@@ -11,6 +11,12 @@ const Aboutus = () => {
       title: "Who We Are",
       text: "Shareholder Management System is a software company that provides shareholder management solutions for businesses of all sizes. Our platform simplifies the process of managing shareholders, enabling businesses to focus on their core operations.",
     },
+    //++++++++++++++++++++ may 21 2024///
+    {
+      id: 4,
+      title: "Rule And Regulations",
+      text: "Minimum Share Amount is 1000",
+    },
     {
       id: 2,
       title: "Our Vision",

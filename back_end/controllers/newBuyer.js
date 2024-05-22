@@ -35,10 +35,14 @@ const createNew=asyncHandler(async(req,res)=>{
     res.status(404);
     throw new Error("shareholder already exists change your email"); 
   }
-  // if(shareamount < 1000){
-  //   res.status(404);
-  //   throw new Error("minimum shareamount should be 1000 birr");
-  // }
+  if(shareamount < 1000){
+    res.status(404);
+    throw new Error("minimum shareamount should be 1000 birr");
+  }
+  if(shareamount > 100000){
+    res.status(404);
+    throw new Error("maximum shareamount should be 100,000 birr");
+  }
   const salt=await bcrypt.genSalt(10);
   const hashedPassword=await bcrypt.hash(password,salt);
   let share=new buyers({
@@ -82,7 +86,7 @@ let options = {
 request(options, async function (err, response) {
     try {
       const result=await JSON.parse(response.body);
-      console.log(result.status)
+      // console.log(result.status)
       if(result.status==='success'){
         await share.save();
       }

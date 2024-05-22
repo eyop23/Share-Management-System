@@ -7,4 +7,5 @@ router.get('/',protect,getNewBuyer);
 router.get('/shareholder_registration/:id',protect,getBuyerById);
 router.post('/',upload.single('image'),createNew);
 router.delete('/:id',deleteNewBuyer);
+// router.update('/upda',deleteNewBuyer);
 module.exports=router;
